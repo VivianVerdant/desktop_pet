@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://cm6482er0d1j5"]
+
+[ext_resource type="Texture2D" uid="uid://d6xxdj34dhen" path="res://dotsu/shime1.png" id="2_0qfo5"]
+[ext_resource type="Texture2D" uid="uid://8l5p7r2oqknf" path="res://dotsu/shime4.png" id="2_n87ta"]
+[ext_resource type="Texture2D" uid="uid://blfbliky40545" path="res://dotsu/shime15.png" id="3_qi5as"]
+[ext_resource type="Texture2D" uid="uid://daimdf81f8ux0" path="res://assets/heart.png" id="3_vp7bq"]
+[ext_resource type="Texture2D" uid="uid://dpvrm0fodmcgo" path="res://dotsu/shime27.png" id="3_wdpcj"]
+[ext_resource type="Texture2D" uid="uid://d1e6nxbk1ng4g" path="res://dotsu/shime28.png" id="4_qi5as"]
+[ext_resource type="Texture2D" uid="uid://c5l2hubebrmuv" path="res://dotsu/shime2.png" id="4_yxww1"]
+[ext_resource type="Texture2D" uid="uid://bdbkhr1icfoh7" path="res://dotsu/shime29.png" id="5_jb3kq"]
+[ext_resource type="Texture2D" uid="uid://dgvhm4yi38j48" path="res://dotsu/shime3.png" id="5_wdpcj"]
+[ext_resource type="Texture2D" uid="uid://bul8dque7m3pq" path="res://dotsu/shime26.png" id="7_ce6jn"]
+[ext_resource type="Texture2D" uid="uid://bxp54cis5blq5" path="res://dotsu/shime16.png" id="8_vnyyd"]
+[ext_resource type="Texture2D" uid="uid://dtia4uyon4ftp" path="res://dotsu/shime17.png" id="9_n87ta"]
+[ext_resource type="Script" uid="uid://c6h2fnikire2f" path="res://Character.gd" id="10_jb3kq"]
+[ext_resource type="Texture2D" uid="uid://co7q48chg0ife" path="res://dotsu/shime18.png" id="10_lusco"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fctmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n87ta")
+}],
+"loop": true,
+"name": &"grabbed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0qfo5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qi5as")
+}],
+"loop": true,
+"name": &"look_around",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_wdpcj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_qi5as")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_jb3kq")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("7_ce6jn")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_qi5as")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_vnyyd")
+}, {
+"duration": 1.5,
+"texture": ExtResource("9_n87ta")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_lusco")
+}],
+"loop": true,
+"name": &"sleep_start",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_0qfo5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_yxww1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_wdpcj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qi5as"]
+offsets = PackedFloat32Array(0.435897, 0.707692)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Dotsu" type="Node2D"]
+script = ExtResource("10_jb3kq")
+_name = "Dotsu"
+metadata/_custom_type_script = ExtResource("10_jb3kq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_fctmx")
+animation = &"grabbed"
+frame_progress = 0.371276
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -64)
+emitting = false
+amount = 5
+texture = ExtResource("3_vp7bq")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.65
+randomness = 0.25
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+spread = 68.18
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 38.75
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_qi5as")

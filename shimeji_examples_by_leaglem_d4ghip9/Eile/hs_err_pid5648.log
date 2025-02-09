@@ -1,0 +1,62 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x10006059, pid=5648, tid=5532
+#
+# JRE version: 6.0_26-b03
+# Java VM: Java HotSpot(TM) Client VM (20.1-b02 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  0x10006059
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08a39000):  JavaThread "Thread-7" [_thread_in_native, id=5532, stack(0x08de0000,0x08e30000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x10006059
+
+Registers:
+EAX=0x00000010, EBX=0x00000000, ECX=0x257d9e30, EDX=0x08a39128
+ESP=0x08e2f6bc, EBP=0x08e2f6e8, ESI=0x08e2f6d8, EDI=0x08a39000
+EIP=0x10006059, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x08e2f6bc)
+0x08e2f6bc:   02305a6b 08a39128 08e2f6d8 00000010
+0x08e2f6cc:   00000000 08e2f6e8 08e2f6e8 342e21a0
+0x08e2f6dc:   00000000 257d9e30 257d9e30 08e2f9cc
+0x08e2f6ec:   02306c1c 00000010 00000000 08e2f708
+0x08e2f6fc:   6d7f2b20 08a39000 08e2f734 6d7f2ac6
+0x08e2f70c:   08a39000 342d8110 08a39000 257d9e30
+0x08e2f71c:   08e2f710 08a39128 08e2fa78 6d9f9d60
+0x08e2f72c:   6d9fc6f0 ffffffff 08e2f744 08e2f9cc 
+
+Instructions: (pc=0x10006059)
+0x10006039:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Register to memory mapping:
+
+EAX=0x00000010 is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=
+[error occurred during error reporting (printing register info), id 0xc0000005]
+
+Stack: [0x08de0000,0x08e30000],  sp=0x08e2f6bc,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x10006059
+J  com.sun.jna.Memory.<init>(J)V
+V  [jvm.dll+0xfae4b]
+V  [jvm.dll+0x18c531]
+V  [jvm.dll+0xfaff1]
+V  [jvm.dll+0xfb04b]
+V  [jvm.dll+0xb56b9]
+V  [jvm.dll+0x1190d4]
+V  [jvm.dll+0x1411ac]
+C  [msvcr71.dll+0x9565]  endthreadex+0xa0
+C  [kernel32.dll+0x13677]  BaseThreadInitThunk+0x12
+C  [ntdll.dll+0x39d42]
