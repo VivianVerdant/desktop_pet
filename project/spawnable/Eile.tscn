@@ -1,0 +1,148 @@
+[gd_scene load_steps=19 format=3 uid="uid://dkvtyaqmw1j3n"]
+
+[ext_resource type="Script" uid="uid://c6h2fnikire2f" path="res://Character.gd" id="1_fheui"]
+[ext_resource type="Texture2D" uid="uid://coyt2f5dfigoj" path="res://Eile/shime4.png" id="2_bxjiw"]
+[ext_resource type="Texture2D" uid="uid://dvke373enykyh" path="res://Eile/shime6.png" id="3_4yl4e"]
+[ext_resource type="Texture2D" uid="uid://yqspa2u0eugq" path="res://Eile/shime1.png" id="4_fheui"]
+[ext_resource type="Texture2D" uid="uid://c54aojbnlsxol" path="res://Eile/shime15.png" id="5_67151"]
+[ext_resource type="Texture2D" uid="uid://dw7po7258nwdk" path="res://Eile/shime27.png" id="6_ugka6"]
+[ext_resource type="Texture2D" uid="uid://c34onc7mvo3oh" path="res://Eile/shime28.png" id="7_vieeu"]
+[ext_resource type="Texture2D" uid="uid://dtywnrtyaw4hh" path="res://Eile/shime29.png" id="8_h6l8e"]
+[ext_resource type="Texture2D" uid="uid://ct38su3bw0sn4" path="res://Eile/shime26.png" id="9_phc3t"]
+[ext_resource type="Texture2D" uid="uid://c2ot5fpa2x6g7" path="res://Eile/shime16.png" id="10_1g1u0"]
+[ext_resource type="Texture2D" uid="uid://eleljss40fhr" path="res://Eile/shime17.png" id="11_103f6"]
+[ext_resource type="Texture2D" uid="uid://bkl6dmdkxswse" path="res://Eile/shime18.png" id="12_bhagu"]
+[ext_resource type="Texture2D" uid="uid://d4n4d84fbyvvq" path="res://Eile/shime20.png" id="13_74xj5"]
+[ext_resource type="Texture2D" uid="uid://cjukqe1565fxy" path="res://Eile/shime2.png" id="14_2hwn8"]
+[ext_resource type="Texture2D" uid="uid://dj67byhmc2ecy" path="res://Eile/shime3.png" id="15_1vjyk"]
+[ext_resource type="Texture2D" uid="uid://daimdf81f8ux0" path="res://assets/heart.png" id="18_winpr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fctmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bxjiw")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4yl4e")
+}],
+"loop": true,
+"name": &"grabbed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fheui")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_67151")
+}],
+"loop": true,
+"name": &"look_around",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_ugka6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_vieeu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_h6l8e")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("9_phc3t")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_67151")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_1g1u0")
+}, {
+"duration": 1.5,
+"texture": ExtResource("11_103f6")
+}, {
+"duration": 1.5,
+"texture": ExtResource("12_bhagu")
+}],
+"loop": true,
+"name": &"sleep_start",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_74xj5")
+}],
+"loop": true,
+"name": &"uffda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_fheui")
+}, {
+"duration": 2.0,
+"texture": ExtResource("14_2hwn8")
+}, {
+"duration": 2.0,
+"texture": ExtResource("15_1vjyk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qi5as"]
+offsets = PackedFloat32Array(0.435897, 0.707692)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Eile" type="Node2D"]
+script = ExtResource("1_fheui")
+character_name = "Eile"
+metadata/_custom_type_script = ExtResource("1_fheui")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_fctmx")
+animation = &"walk"
+frame = 1
+frame_progress = 0.796077
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -64)
+emitting = false
+amount = 5
+texture = ExtResource("18_winpr")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.65
+randomness = 0.25
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+spread = 68.18
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 38.75
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_qi5as")

@@ -1,9 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://dawjwx8nckvmm"]
 
 [ext_resource type="Script" uid="uid://cth0csyo731ko" path="res://main.gd" id="1_5e0xm"]
-[ext_resource type="PackedScene" uid="uid://cm6482er0d1j5" path="res://dotsu.tscn" id="2_n7kpb"]
+[ext_resource type="PackedScene" uid="uid://64q0eqdwp3i8" path="res://main_window.tscn" id="2_0xm2m"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_5e0xm")
 
-[node name="Dotsu" parent="." instance=ExtResource("2_n7kpb")]
+[node name="Main_Window" parent="." instance=ExtResource("2_0xm2m")]
+layout_mode = 1
+
+[node name="Characters" type="Node2D" parent="."]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
